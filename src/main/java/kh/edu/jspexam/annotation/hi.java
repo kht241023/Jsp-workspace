@@ -5,7 +5,8 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
+// 어노테이션은 대소문자 구분 없이 생성이 가능하지만
+// 이름의 첫 앞글자를 대문자로 작성하면 어디서든지 소문자보다 쉽게 호출가능
 /**
  * @Target(ElementType.METHOD)
  *          : 어디에 붙일 수 있는지 지정
