@@ -26,7 +26,7 @@ public interface PostMapper {
             "post_id AS postId, " +
             "post_title AS postTitle, " +
             "post_content AS postContent, " +
-            "post_writer AS postwriter" +
+            "post_writer AS postwriter," +
             "created_at AS createAt" +
             " FROM post WHERE post_id = ${postId}")
     PostDTO selectPostById(@Param("postId") int postId);

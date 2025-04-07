@@ -1,4 +1,9 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page import="kh.edu.jspexam.model.dto.PostDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page language="java"
+         contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -19,15 +24,22 @@
             <th>작성자</th>
             <th>작성일시</th>
         </tr>
+        <%
+        List<PostDTO> posts = (List<PostDTO>) request.getAttribute("posts");
+        if(posts != null) {
+            for (PostDTO post : posts) {
+         %>
 
-    <c:forEach var="post" items="${posts}">
         <tr>
-            <td>${post.postId}</td>
-            <td>${post.postTitle}</td>
-            <td>${post.postWriter}</td>
-            <td>${post.createAt}</td>
+            <td><%= post.getPostId()%></td>
+            <td><%= post.getPostWriter()%></td>
+            <td><%= post.getCreateAt()%></td>
+            <td><%= post.getPostTitle()%></td>
         </tr>
-    </c:forEach>
+        <%
+                }
+            }
+        %>
     </table>
 
     <script src="${pageContext.request.contextPath}/js/script.js"></script>
